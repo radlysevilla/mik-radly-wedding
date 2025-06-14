@@ -115,7 +115,7 @@ export default function Home() {
       </AnimatePresence>
 
       {/* Hero Section */}
-      <section className="h-[80vh] flex items-center relative px-4">
+      <section className="h-[100vh] flex items-center relative px-4">
         {/* Background Image */}
         <div 
           className="hero-background absolute inset-0 bg-center bg-cover bg-no-repeat z-0"

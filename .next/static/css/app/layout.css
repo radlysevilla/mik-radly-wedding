@@ -712,9 +712,6 @@ video {
 .h-\[60vh\] {
   height: 60vh;
 }
-.h-\[80vh\] {
-  height: 80vh;
-}
 .h-\[90vh\] {
   height: 90vh;
 }
@@ -725,6 +722,12 @@ video {
   height: 100%;
 }
 .h-screen {
+  height: 100vh;
+}
+.h-\[96vh\] {
+  height: 96vh;
+}
+.h-\[100vh\] {
   height: 100vh;
 }
 .min-h-screen {
