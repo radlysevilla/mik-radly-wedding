@@ -50,7 +50,7 @@ export default function Home() {
       <AnimatePresence>
         {showEnvelope && (
           <motion.div
-            className="fixed inset-0 bg-gradient-to-br from-[#ffeaa7] via-[#fab1a0] to-[#fd79a8] z-50 flex items-center justify-center"
+            className="fixed inset-0 backdrop-blur-md bg-white/30 z-50 flex items-center justify-center"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -74,11 +74,11 @@ export default function Home() {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.5 }}
               >
-                <h2 className="text-2xl font-romana text-[#8b4513] mb-4">❤️ You're Invited ❤️</h2>
+                <h2 className="text-3xl font-romana text-[#8b4513] mb-4">You're Invited!</h2>
                 <p className="text-[#8b4513] font-romana">
                   Join us as we celebrate<br />
                   our special day filled with<br />
-                  love, laughter, and forever memories
+                  love, laughter, and forever memories.
                 </p>
               </motion.div>
             </motion.div>
@@ -115,13 +115,12 @@ export default function Home() {
       </AnimatePresence>
 
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center relative px-4">
+      <section className="h-[80vh] flex items-center relative px-4">
         {/* Background Image */}
         <div 
-          className="absolute inset-0 bg-cover bg-no-repeat z-0 md:bg-center"
+          className="hero-background absolute inset-0 bg-center bg-cover bg-no-repeat z-0"
           style={{ 
-            backgroundImage: "url('/LR-edited-size-optimized-2/YEN08237.jpg')",
-            backgroundPosition: '77% bottom' // shifts to the right on small screens
+            backgroundImage: "url('/LR-edited-size-optimized-2/POY07894.jpg')"
           }}
         />
         {/* Overlay */}
@@ -131,7 +130,12 @@ export default function Home() {
         <div className="relative z-10 w-full flex flex-col items-center md:items-middle lg:ml-16 max-w-4xl text-white text-center md:text-center">
           
           {/* Logo */}
-          <div className="flex justify-center md:justify-start mb-8">
+          <motion.div 
+            className="flex justify-center md:justify-start mb-8"
+            initial={{ opacity: 0, y: -20 }}
+            animate={!showEnvelope ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
             <div className="logo-container">
               <Image
                 src="/image-assets/wed_logo.png"
@@ -141,36 +145,68 @@ export default function Home() {
                 className="object-contain"
               />
             </div>
-          </div>
-
+          </motion.div>
+          
           {/* Heading */}
-          <h1 className="text-6xl md:text-8xl mb-4 flex flex-col items-center md:items-middle">
+          <motion.h1 
+            className="text-6xl md:text-8xl mb-4 flex flex-col items-center md:items-middle"
+            initial={{ opacity: 0, y: -20 }}
+            animate={!showEnvelope ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
+            transition={{ duration: 1.5, delay: 0.4 }}
+          >
             <span className="names-text">MIK</span>
             <span className="and-text mr-0 md:mr-2 -mb-3">and</span>
             <span className="names-text mb-6">RADLY</span>
-          </h1>
+          </motion.h1>
 
           {/* Subheadings */}
-          <h2 className="text-xl md:text-2xl font-romana mb-6 other-text">ARE GETTING MARRIED!</h2>
-          <h3 className="text-lg md:text-2xl font-romana -mb-1 leading-tight other-text">09.20.2025</h3>
-          <h4 className="text-base md:text-lg font-romana mb-8 leading-tight other-text">L'AQUINUM GARDENS</h4>
+          {/*
+          <motion.h2 
+            className="text-xl md:text-2xl font-romana mb-6 other-text"
+            initial={{ opacity: 0, y: -20 }}
+            animate={!showEnvelope ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
+            transition={{ duration: 1.5, delay: 0.6 }}
+          >
+           ARE GETTING MARRIED!
+          </motion.h2>
+          */}
+          <motion.h3 
+            className="text-lg md:text-2xl font-romana -mb-1 leading-tight other-text"
+            initial={{ opacity: 0, y: -20 }}
+            animate={!showEnvelope ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
+            transition={{ duration: 1.5, delay: 0.8 }}
+          >
+            09.20.2025
+          </motion.h3>
+          <motion.h4 
+            className="text-base md:text-lg font-romana mb-8 leading-tight other-text"
+            initial={{ opacity: 0, y: -20 }}
+            animate={!showEnvelope ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
+            transition={{ duration: 0.8, delay: 1.0 }}
+          >
+            L'AQUINUM GARDENS
+          </motion.h4>
 
           {/* Button */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={!showEnvelope ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
+            transition={{ duration: 0.8, delay: 1.2 }}
+          >
             <Link 
               href="/rsvp"
               className="inline-block px-8 py-4 bg-[#faf4eb] text-black font-romana text-lg md:text-xl rounded-full hover:bg-white transition-colors"
             >
               RSVP HERE
             </Link>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       
       {/* Invitation Section */}
       <section className="relative min-h-screen flex flex-col bg-[#faf4eb]">
-        <div className="relative z-10 text-center w-full">
+        <div className="relative text-center w-full">
           <div className="bg-[#3a302e] w-full py-8">
             <h2 className="text-7xl font-emitha text-[#faf4eb] md:text-8xl text-4xl">
               A story of our ever after
@@ -180,8 +216,8 @@ export default function Home() {
             <div 
               className="invitation-image"
               style={{ 
-                backgroundImage: "url('/LR-edited-size-optimized-2/POY07963.jpg')",
-                height: '60vh'
+                backgroundImage: "url('/LR-edited-size-optimized-2/YEN07562.jpg')",
+                height: '80vh'
               }}
             />
             <div className="invitation-content">
@@ -251,7 +287,7 @@ export default function Home() {
               Venue
             </h3>
             <p className="invitation-body text-lg font-romana text-center max-w-2xl mx-auto">
-              Our wedding ceremony and reception will take place at L'Aquinum Gardens, Antipolo City, Rizal.
+              Our wedding ceremony and reception will be held at L'Aquinum Gardens, Antipolo City, Rizal.
             </p>
           </div>
 
@@ -286,7 +322,8 @@ export default function Home() {
             </h3>
             
             <p className="invitation-body text-lg font-romana text-center max-w-2xl mx-auto">
-            Kindly join us in garden-inspired elegance. We request that ladies attire themselves in floral or pastel dresses. Gentlemen are encouraged to wear lightweight suits, or formal long-sleeved polo with a tie, coordinated with our wedding color palette.
+              Kindly join us in garden-inspired elegance. We request that ladies attire themselves in floral or pastel dresses. 
+              Gentlemen are encouraged to wear lightweight suits in black or beige, or formal long-sleeved polo coordinated with our wedding color palette.
             </p>
             </div>
             <div className="max-w-[300px] mx-auto px-[20px] mt-[20px] mb-[20px] text-center">
@@ -314,7 +351,7 @@ export default function Home() {
               </h3>
               <p className="invitation-body text-lg font-romana text-center max-w-2xl mx-auto">
               <b>Ninangs:</b> Long gown or dress for the ladies<br />
-              <b>Ninongs:</b> Black or brown suit and tie for the gentlemen <br />
+              <b>Ninongs:</b> Black or beige suit and tie for the gentlemen <br />
               <br />
               </p>
           
@@ -343,27 +380,32 @@ export default function Home() {
           <div className="mt-4">
             <p className="invitation-body text-lg font-romana text-center max-w-2xl mx-auto">
             Your love, your prayers, and just having you there with us mean the world. 
-            But if you're thinking of giving a gift, a little monetary gift would truly support our new beginning and mean so much to us. You'll find our bank QR codes below.
+            But if you're thinking of giving a gift, a little monetary gift would truly support our new beginning and mean so much to us.
             </p>
             </div>
-            <div className="max-w-[400px] mx-auto px-[20px] mt-[20px] mb-[20px] text-center md:max-w-[500px]">
-                <Image 
-                  src="/image-assets/qr-bank.png"
-                  alt="Bank QR Codes"
-                  width={550}
-                  height={300}
-                  className="w-full h-auto"
-                  priority
-                />
-              </div>
-              <div className="mt-4">
-            <h3 className="invitation-header mt-10">
-              Reminders
-            </h3>
             
-            <p className="invitation-body text-lg font-romana text-center max-w-2xl mx-auto mb-10">
-            Kindly join us in garden-inspired elegance. We request that ladies attire themselves in floral or pastel dresses. Gentlemen are encouraged to wear lightweight suits, or formal long-sleeved polo with a tie, coordinated with our wedding color palette.
-            </p>
+            <div className="mt-4">
+              <h3 className="invitation-header mt-8">
+                Reminders
+              </h3>
+              <p className="invitation-body text-lg font-romana text-center max-w-2xl mx-auto mb-10">
+              While we absolutely adore your little ones, please note that our wedding will be an adults-only celebration, and our ceremony will be unplugged to allow everyone to be fully present in the moment.
+              </p>
+            </div>
+
+            <div className="mt-4">
+              <h3 className="invitation-header mt-8">
+                Got more questions?
+              </h3>
+              <p className="invitation-body text-lg font-romana text-center max-w-2xl mx-auto mb-4">
+              Head over to our FAQs page.
+              </p>
+                <Link 
+                href="/faqs"
+                className="inline-block px-8 py-2 bg-[#3a302e] text-[#faf4eb] font-romana mb-8 text-lg md:text-xl rounded-full hover:bg-black transition-colors "
+                  >
+                FAQs
+                </Link>
             </div>
         
           

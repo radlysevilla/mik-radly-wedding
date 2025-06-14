@@ -40,7 +40,7 @@ export default function FAQs() {
               Can I bring a plus one in your wedding?
             </h3>
             <p className="text-lg font-romana">
-              Unfortunately, No! Due to limited capacity, we kindly ask that you honor the number of seats reserved in your name. We appreciate your understanding in not bringing additional guests, including children or plus-ones not specifically invited.
+              Due to limited capacity, we kindly ask that you honor the number of seats reserved in your name. We appreciate your understanding in not bringing additional guests, including children or plus-ones not specifically invited.
             </p>
           </div>
 
@@ -50,7 +50,7 @@ export default function FAQs() {
               Are children allowed at the wedding?
             </h3>
             <p className="text-lg font-romana">
-              While we adore your little ones, our wedding and reception will be an adults-only celebration, with the exception of immediate family. We hope you'll take this opportunity to enjoy a well-deserved night out!
+              Our wedding and reception will be an adults-only celebration, with the exception of immediate family. We hope you'll take this opportunity to enjoy a well-deserved night out!
             </p>
           </div>
 
@@ -90,7 +90,7 @@ export default function FAQs() {
             I am not a principal sponsor or immediate family of the bride or groom, can I wear a t-shirt and maong pants?
             </h3>
             <p className="text-lg font-romana">
-            No, we kindly ask all guests to follow our dress code. Ladies, please wear a floral or pastel dress. Gentlemen, we encourage lightweight suits; if unavailable, a long-sleeved dress shirt with a tie that matches our color palette is perfectly acceptable.
+            No, we kindly ask all guests to follow our dress code. Ladies, please wear a floral or pastel dress. Gentlemen, we encourage lightweight suits; if unavailable, a long-sleeved polo shirt that matches our color palette is perfectly acceptable.
             </p>
           </div>
 
@@ -160,6 +160,19 @@ export default function FAQs() {
                 <p className="text-lg font-romana">
                 You may contact Mik or Radly on messenger for more questions.
                 </p>
+            </div>
+
+            {/* Twelveth FAQ */}
+            <div className="bg-white rounded-lg shadow-md p-6 mb-8" style={{ color: '#3a302e', textAlign: 'center' }}>
+                <h3 className="text-xl font-romana font-bold mb-4">
+                Ready to fill out the RSVP? Click the button below.
+                </h3>
+                <Link 
+                href="/rsvp"
+                className="inline-block px-8 py-2 bg-[#3a302e] text-[#faf4eb] font-romana mb-4 text-lg md:text-xl rounded-full hover:bg-black transition-colors "
+                  >
+                RSVP
+                </Link>
             </div>
 
 
