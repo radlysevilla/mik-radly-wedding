@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -15,6 +15,8 @@ export default function Home() {
     minutes: '00',
     seconds: '00'
   });
+  const [videoOverlay, setVideoOverlay] = useState(true);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     const weddingDate = new Date('2025-09-20T14:30:00');
@@ -233,6 +235,22 @@ export default function Home() {
       </section>
       {/* Filmstrip Section */}
       <Filmstrip direction="left" />
+
+      {/* Save the Date Video Section */}
+      <section className="relative flex items-center justify-center bg-[#faf4eb] py-12">
+        <div className="w-full max-w-7xl px-4">
+          <div className="relative w-full aspect-[16/9] rounded-lg overflow-hidden shadow-lg border border-[#d4c5a9]">
+            <iframe
+              className="absolute top-0 left-0 w-full h-full rounded-lg"
+              src="https://www.youtube.com/embed/2zm-CjbGG9A?si=uQueJ6yE4yIc8TAY"
+              title="Mik and Radly | Save the Date"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            ></iframe>
+          </div>
+        </div>
+      </section>
 
       {/* Save the Date Section */}
       <section className="relative min-h-screen flex items-center justify-center">
